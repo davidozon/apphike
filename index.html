@@ -1,6 +1,10 @@
 <!DOCTYPE html>
 <html lang="fr"><head><meta charset="utf-8"><title>App Hike</title>
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="icon" type="image/png" href="icon-192.png">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<meta name="mobile-web-app-capable" content="yes">
 <style>
 :root{--bg:#f6f5f1;--card:#fff;--tx:#1d1d1b;--mu:#6b6a64;--ln:#e2e0d8;--a:#2f6f5e;--b:#d9822b;color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
 @media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#171815;--card:#222320;--tx:#efeee8;--mu:#a09f97;--ln:#34352f;--a:#5fb59e;--b:#f0a45a;color-scheme:dark}}
@@ -192,7 +196,7 @@ h1{top:env(safe-area-inset-top,0px)}
 html.nf #run .rc{padding-right:calc(176px + env(safe-area-inset-right,0px))}
 html.nf #run .rc button{white-space:nowrap}@media not (orientation:landscape){html.nf #run .rc{padding-right:calc(162px + env(safe-area-inset-right,0px));gap:8px}html.nf #run .rc button{font-size:clamp(.95rem,4.2vw,1.2rem);padding:14px 6px}}
 </style></head><body><main>
-<h1><span class="ti"><svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true"><circle cx="12" cy="12" r="11" fill="#2f6f5e"/><path d="M6.5 18.5 16 16 8.5 12 15.5 9.2" fill="none" stroke="#fff" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"/><circle cx="14.5" cy="6.3" r="2.3" fill="#d9822b"/></svg><span class="tt">App Hike<small class="ver">v261110.10.2</small></span></span><span class="hb"><button id="hbt" type="button">Historique</button><button id="fs" type="button" aria-label="Plein écran" title="Plein écran">⛶</button></span></h1>
+<h1><span class="ti"><svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true"><circle cx="12" cy="12" r="11" fill="#2f6f5e"/><path d="M6.5 18.5 16 16 8.5 12 15.5 9.2" fill="none" stroke="#fff" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"/><circle cx="14.5" cy="6.3" r="2.3" fill="#d9822b"/></svg><span class="tt">App Hike<small class="ver">v261111.1</small></span></span><span class="hb"><button id="hbt" type="button">Historique</button><button id="fs" type="button" aria-label="Plein écran" title="Plein écran">⛶</button></span></h1>
 <div class="card">
 <div><label for="ty">Type de séance</label><select id="ty"><option value="pente">Marche en pente</option><option value="it">Fractionné HIT</option><option value="libre">Séance libre</option><option value="gpx">Parcours GPX</option></select></div>
 <button id="au" type="button" aria-pressed="false" hidden><span class="bt"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 17a8 8 0 1 1 16 0"/><path d="M12 17l4-5"/><circle cx="12" cy="17" r="1"/></svg>Autopilote selon la FC</span><span class="sw"></span></button>
@@ -261,7 +265,7 @@ html.nf #run .rc button{white-space:nowrap}@media not (orientation:landscape){ht
 <div id="cfs" hidden><div class="cb"><b>Passer à la phase suivante ?</b><p id="cfsp"></p><div class="rc"><button id="cfsn" type="button">Non</button><button id="cfsy" type="button">Oui, passer</button></div></div></div>
 <div id="cfh" hidden><div class="cb"><b>Déconnecter le cardio ?</b><div class="rc"><button id="hn" type="button">Non</button><button id="hy" type="button">Oui</button></div></div></div>
 </div>
-<div id="hist" hidden><div class="hw"><div class="top"><span class="ti"><svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true"><circle cx="12" cy="12" r="11" fill="#2f6f5e"/><path d="M6.5 18.5 16 16 8.5 12 15.5 9.2" fill="none" stroke="#fff" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"/><circle cx="14.5" cy="6.3" r="2.3" fill="#d9822b"/></svg><span class="tt">App Hike<small class="ver">v261110.10.2</small></span></span><span class="hb"><button id="hback" type="button">← Paramétrage</button><button id="fs3" type="button" aria-label="Plein écran" title="Plein écran">⛶</button></span></div>
+<div id="hist" hidden><div class="hw"><div class="top"><span class="ti"><svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true"><circle cx="12" cy="12" r="11" fill="#2f6f5e"/><path d="M6.5 18.5 16 16 8.5 12 15.5 9.2" fill="none" stroke="#fff" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"/><circle cx="14.5" cy="6.3" r="2.3" fill="#d9822b"/></svg><span class="tt">App Hike<small class="ver">v261111.1</small></span></span><span class="hb"><button id="hback" type="button">← Paramétrage</button><button id="fs3" type="button" aria-label="Plein écran" title="Plein écran">⛶</button></span></div>
 <div class="card"><b id="hsince"></b><div class="stats" id="hsum" style="margin:10px 0 0"></div><div class="note" id="hsrc"></div></div>
 <div class="card"><h2>Sauvegarde</h2><div style="display:flex;gap:8px;margin-top:8px;flex-wrap:wrap"><button id="hexp" type="button">Exporter (JSON)</button><button id="himpb" type="button">Charger une sauvegarde</button><input id="himp" type="file" accept=".json,application/json" hidden></div><label class="ck" style="margin-top:8px"><input type="checkbox" id="hauto"> Fichier de sauvegarde automatique après chaque séance</label><div class="note" id="hmsg"></div><div id="hfb" hidden><textarea id="hta" readonly rows="5" style="width:100%;margin-top:8px;font-size:.75rem"></textarea><button id="hcp" type="button" style="margin-top:6px">Copier le texte</button></div></div>
 <div class="card"><h2>FC moyenne par inclinaison et vitesse</h2><div class="note" style="margin:0 0 8px">Uniquement les phases stables (≥ 1 min à vitesse et inclinaison constantes) avec FC reçue, pour limiter l’effet du retard de la FC. Plus la case est foncée, plus la FC est haute.</div><div class="hscr" id="htab"></div></div>
@@ -271,6 +275,7 @@ html.nf #run .rc button{white-space:nowrap}@media not (orientation:landscape){ht
 <script>
 const $=id=>document.getElementById(id);
 if(/(^|\.)netlify\.app$/i.test(location.hostname))document.documentElement.classList.add("nf");
+if("serviceWorker" in navigator&&/(^|\.)netlify\.app$/i.test(location.hostname))navigator.serviceWorker.register("sw.js").catch(()=>{});
 function fd(km){return km<1?Math.round(km*1000)+" m":km.toFixed(2)+" km"}
 function mmss(m){const s=Math.round(m*60);return Math.floor(s/60)+":"+String(s%60).padStart(2,"0")}
 function build(i,v0,T,ty,lvl,L,Q,seed,X){
