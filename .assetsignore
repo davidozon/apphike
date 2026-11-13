@@ -1,0 +1,10 @@
+.git
+.github
+.assetsignore
+.nojekyll
+wrangler.jsonc
+wrangler.toml
+cloudflare-worker.js
+node_modules
+*.md
+.dev.vars
