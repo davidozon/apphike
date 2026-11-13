@@ -1,0 +1,9 @@
+{
+  // App Hike sur Cloudflare : l'app (fichiers statiques) + la sauvegarde privée (/backup).
+  // L'espace KV « BK » est créé automatiquement au premier déploiement.
+  "name": "apphike",
+  "main": "cloudflare-worker.js",
+  "compatibility_date": "2025-09-01",
+  "assets": { "directory": "." },
+  "kv_namespaces": [{ "binding": "BK" }]
+}
